@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faisal Ali | Model Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SortableJS for drag & drop -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <!-- Lightbox (simple) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+</head>
+<body>
+    <div class="overlay"></div> <!-- dark overlay for depth -->
+    <div class="container">
+        <!-- Centered title & menu -->
+        <div class="hero-center">
+            <h1 class="name">Faisal Ali</h1>
+            <nav class="main-nav">
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="zcard.html">Z-Card</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="color">Color</button>
+            <button class="filter-btn" data-filter="bw">Black & White</button>
+        </div>
+
+        <!-- Masonry Gallery (draggable) -->
+        <div id="gallery" class="masonry">
+            <!-- Images will be injected by JavaScript -->
+        </div>
+
+        <footer>
+            <p>© 2026 Faisal Ali | Represented by [Fusion Management]</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

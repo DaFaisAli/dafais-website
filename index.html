@@ -5,42 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faisal Ali | Model Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- SortableJS for drag & drop -->
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <!-- Lightbox (simple) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
 </head>
-<body>
-    <div class="overlay"></div> <!-- dark overlay for depth -->
-    <div class="container">
-        <!-- Centered title & menu -->
-        <div class="hero-center">
-            <h1 class="name">Faisal Ali</h1>
-            <nav class="main-nav">
-                <a href="index.html" class="active">Gallery</a>
-                <a href="zcard.html">Z-Card</a>
-                <a href="contact.html">Contact</a>
-            </nav>
+<body class="home-page">
+    <!-- Fullscreen Collage Background -->
+    <div class="collage-bg" id="collageBg"></div>
+    
+    <!-- Dark overlay for text readability -->
+    <div class="collage-overlay"></div>
+    
+    <!-- Centered Hero Content -->
+    <div class="home-hero">
+        <h1 class="home-name">Faisal Ali</h1>
+        <p class="home-tagline">Model | Creative | Storyteller</p>
+        
+        <nav class="home-nav">
+            <a href="gallery.html">Gallery</a>
+            <a href="zcard.html">Z-Card</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        
+        <div class="scroll-hint">
+            <span>Enter</span>
+            <div class="scroll-arrow">↓</div>
         </div>
-
-        <!-- Filter buttons -->
-        <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="color">Color</button>
-            <button class="filter-btn" data-filter="bw">Black & White</button>
-        </div>
-
-        <!-- Masonry Gallery (draggable) -->
-        <div id="gallery" class="masonry">
-            <!-- Images will be injected by JavaScript -->
-        </div>
-
-        <footer>
-            <p>© 2026 Faisal Ali | Represented by [Fusion Management]</p>
-        </footer>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Create collage background from your 37 photos
+        document.addEventListener('DOMContentLoaded', function() {
+            const collageBg = document.getElementById('collageBg');
+            const photoCount = 37;
+            
+            // Create an array of photo numbers and shuffle them for random placement
+            const photoNumbers = Array.from({length: photoCount}, (_, i) => i + 1);
+            
+            // Shuffle function
+            function shuffleArray(arr) {
+                for (let i = arr.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [arr[i], arr[j]] = [arr[j], arr[i]];
+                }
+                return arr;
+            }
+            
+            const shuffledPhotos = shuffleArray([...photoNumbers]);
+            
+            // Generate collage items
+            shuffledPhotos.forEach(num => {
+                const collageItem = document.createElement('div');
+                collageItem.className = 'collage-item';
+                
+                // Random positioning
+                const randomX = Math.random() * 100;
+                const randomY = Math.random() * 100;
+                const randomSize = 150 + Math.random() * 200; // 150-350px
+                const randomRotation = -10 + Math.random() * 20; // -10 to 10 deg
+                const randomDelay = Math.random() * 2;
+                
+                collageItem.style.cssText = `
+                    left: ${randomX}%;
+                    top: ${randomY}%;
+                    width: ${randomSize}px;
+                    animation-delay: ${randomDelay}s;
+                    transform: rotate(${randomRotation}deg);
+                `;
+                
+                const img = document.createElement('img');
+                img.src = `photos/${num}.JPG`;
+                img.alt = `Faisal Ali`;
+                img.loading = 'lazy';
+                
+                collageItem.appendChild(img);
+                collageBg.appendChild(collageItem);
+            });
+            
+            // Add more floating animation to items
+            const items = document.querySelectorAll('.collage-item');
+            items.forEach((item, index) => {
+                const duration = 15 + Math.random() * 15;
+                const yOffset = -20 + Math.random() * 40;
+                item.style.animation = `float ${duration}s infinite ease-in-out`;
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+        
+        // Scroll hint - fade out on scroll
+        window.addEventListener('scroll', function() {
+            const scrollHint = document.querySelector('.scroll-hint');
+            if (scrollHint) {
+                const opacity = Math.max(0, 1 - window.scrollY / 100);
+                scrollHint.style.opacity = opacity;
+            }
+        });
+    </script>
 </body>
 </html>
