@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&display=swap');
+
 /* HOMEPAGE COLLAGE STYLES */
 .home-page {
     overflow-x: hidden;
@@ -197,7 +199,6 @@ body {
 }
 
 /* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&display=swap');
 
 .container {
     max-width: 1400px;
