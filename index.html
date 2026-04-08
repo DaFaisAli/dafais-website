@@ -31,73 +31,49 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // Create collage background from your 37 photos
-        document.addEventListener('DOMContentLoaded', function() {
-            const collageBg = document.getElementById('collageBg');
-            const photoCount = 37;
-            
-            // Create an array of photo numbers and shuffle them for random placement
-            const photoNumbers = Array.from({length: photoCount}, (_, i) => i + 1);
-            
-            // Shuffle function
-            function shuffleArray(arr) {
-                for (let i = arr.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [arr[i], arr[j]] = [arr[j], arr[i]];
-                }
-                return arr;
-            }
-            
-            const shuffledPhotos = shuffleArray([...photoNumbers]);
-            
-            // Generate collage items
-            shuffledPhotos.forEach(num => {
-                const collageItem = document.createElement('div');
-                collageItem.className = 'collage-item';
-                
-                // Random positioning
-                const randomX = Math.random() * 100;
-                const randomY = Math.random() * 100;
-                const randomSize = 150 + Math.random() * 200; // 150-350px
-                const randomRotation = -10 + Math.random() * 20; // -10 to 10 deg
-                const randomDelay = Math.random() * 2;
-                
-                collageItem.style.cssText = `
-                    left: ${randomX}%;
-                    top: ${randomY}%;
-                    width: ${randomSize}px;
-                    animation-delay: ${randomDelay}s;
-                    transform: rotate(${randomRotation}deg);
-                `;
-                
-                const img = document.createElement('img');
-                img.src = `photos/${num}.jpg`;
-                img.alt = `Faisal Ali`;
-                img.loading = 'lazy';
-                
-                collageItem.appendChild(img);
-                collageBg.appendChild(collageItem);
-            });
-            
-            // Add more floating animation to items
-            const items = document.querySelectorAll('.collage-item');
-            items.forEach((item, index) => {
-                const duration = 15 + Math.random() * 15;
-                const yOffset = -20 + Math.random() * 40;
-                item.style.animation = `float ${duration}s infinite ease-in-out`;
-                item.style.animationDelay = `${index * 0.1}s`;
-            });
-        });
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const collageBg = document.getElementById('collageBg');
+        const photoCount = 37;
         
-        // Scroll hint - fade out on scroll
-        window.addEventListener('scroll', function() {
-            const scrollHint = document.querySelector('.scroll-hint');
-            if (scrollHint) {
-                const opacity = Math.max(0, 1 - window.scrollY / 100);
-                scrollHint.style.opacity = opacity;
-            }
+        // Use .JPG since that worked for your gallery
+        for (let i = 1; i <= photoCount; i++) {
+            const collageItem = document.createElement('div');
+            collageItem.className = 'collage-item';
+            
+            // Random position and size
+            const randomX = Math.random() * 100;
+            const randomY = Math.random() * 100;
+            const randomSize = 150 + Math.random() * 200;
+            const randomRotation = -10 + Math.random() * 20;
+            
+            collageItem.style.cssText = `
+                left: ${randomX}%;
+                top: ${randomY}%;
+                width: ${randomSize}px;
+                transform: rotate(${randomRotation}deg);
+                position: absolute;
+            `;
+            
+            const img = document.createElement('img');
+            img.src = `photos/${i}.JPG`;
+            img.alt = 'Faisal Ali';
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+            
+            collageItem.appendChild(img);
+            collageBg.appendChild(collageItem);
+        }
+        
+        // Add floating animation
+        const items = document.querySelectorAll('.collage-item');
+        items.forEach((item, index) => {
+            const duration = 15 + Math.random() * 15;
+            item.style.animation = `float ${duration}s infinite ease-in-out`;
+            item.style.animationDelay = `${index * 0.1}s`;
         });
-    </script>
+    });
+</script>
 </body>
 </html>
