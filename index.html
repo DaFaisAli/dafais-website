@@ -40,6 +40,7 @@
         for (let i = 1; i <= photoCount; i++) {
             const collageItem = document.createElement('div');
             collageItem.className = 'collage-item';
+            collageItem.style.opacity = '0.85';
             
             // Random position and size
             const randomX = Math.random() * 100;
@@ -53,6 +54,7 @@
                 width: ${randomSize}px;
                 transform: rotate(${randomRotation}deg);
                 position: absolute;
+                opacity: 0.85;
             `;
             
             const img = document.createElement('img');
