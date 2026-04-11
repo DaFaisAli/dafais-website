@@ -14,7 +14,7 @@ for (let i = 1; i <= 46; i++) {
 // Category mapping (you can edit this per image)
 // By default all are 'color'; you can add exceptions for B&W images.
 // Example: for images 5,12,20 are black & white
-const bwIndices = [5, 12, 20]; // change these to actual indices (1-based)
+const bwIndices = [6, 7, 8, 12, 13, 23, 24, 25, 26, 27, 31, 35, 36]; // change these to actual indices (1-based)
 // or use filenames: if filename contains "bw" then treat as bw.
 
 let imagesData = [];
