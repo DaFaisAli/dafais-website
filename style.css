@@ -61,8 +61,7 @@
 }
 
 .gallery-page::before,
-.zcard-page::before,
-.contact-page::before {
+.zcard-page::before {
     content: '';
     position: fixed;
     top: 0;
