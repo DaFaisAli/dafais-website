@@ -5,7 +5,7 @@ const imageFolder = 'photos/';
 // For easier maintenance, you can name them 1.jpg to 37.jpg and generate array.
 let imageNames = [];
 // Generate 37 images (if you name them 1.jpg ... 37.jpg)
-for (let i = 1; i <= 37; i++) {
+for (let i = 1; i <= 46; i++) {
     imageNames.push(`${i}.jpg`);
 }
 // If you have mixed names, replace above with array like:
