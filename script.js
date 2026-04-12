@@ -133,7 +133,7 @@ function initMiniGallery() {
     if (!mini) return;
     
     // 👇 CUSTOMIZE THIS ARRAY with your favorite photo numbers
-    const favoriteNumbers = [3, 11, 21, 26, 37, 39, 44, 46];
+    const favoriteNumbers = [3, 11, 26, 21, 37, 39, 44, 46];
     
     // Find the actual image data for those numbers
     const previewImages = favoriteNumbers.map(num => {
