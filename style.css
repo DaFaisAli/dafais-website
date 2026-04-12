@@ -52,6 +52,15 @@
     pointer-events: none;
 }
 
+.name a {
+    color: #f5ecd7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.name a:hover {
+    color: #e6c200;
+}
 
 /* Warm caramel glow for all inner pages */
 .gallery-page .container,
