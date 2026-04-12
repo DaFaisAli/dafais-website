@@ -52,6 +52,7 @@
     pointer-events: none;
 }
 
+
 /* Warm caramel glow for all inner pages */
 .gallery-page .container,
 .zcard-page .container,
@@ -219,7 +220,6 @@ body {
 }
 
 /* Import Google Font */
-
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -239,6 +239,7 @@ body {
     pointer-events: none;
     z-index: 0;
 }
+
 
 /* Centered hero */
 .hero-center {
@@ -307,6 +308,7 @@ body {
     border-color: #e6c200;
 }
 
+
 /* Masonry Gallery */
 .masonry {
     column-count: 3;
@@ -348,6 +350,7 @@ body {
     .masonry { column-count: 1; }
     .name { font-size: 2.2rem; }
 }
+
 
 /* Z-Card page */
 .zcard {
@@ -400,8 +403,9 @@ body {
     margin-bottom: 0.8rem;
 }
 
-/* Contact page */
-.contact-page {
+
+/* Contact page layout with photo */
+.contact-layout {
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
@@ -409,34 +413,44 @@ body {
     background: #111;
     border-radius: 24px;
     padding: 2rem;
-}
-.contact-info, .contact-form {
-    flex: 1;
-}
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    background: #1e1e1e;
-    border: 1px solid #3a2e1f;
-    color: #e0d6c0;
-    border-radius: 8px;
-}
-.contact-form button {
-    background: #e6c200;
-    color: #000;
-    border: none;
-    padding: 0.8rem 2rem;
-    border-radius: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.form-note {
-    font-size: 0.7rem;
-    margin-top: 1rem;
-    color: #888;
+    align-items: center;
 }
 
+.contact-info {
+    flex: 2;
+    min-width: 250px;
+}
+
+.contact-photo {
+    flex: 1;
+    min-width: 200px;
+}
+
+.contact-photo img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.contact-photo img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+    .contact-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-photo {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+
+/* footer */
 footer {
     text-align: center;
     margin-top: 4rem;
