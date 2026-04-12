@@ -131,8 +131,15 @@ function setupFilters() {
 function initMiniGallery() {
     const mini = document.getElementById('mini-gallery');
     if (!mini) return;
-    // Show first 8 images as small strip
-    const previewImages = imagesData.slice(0, 8);
+    
+    // 👇 CUSTOMIZE THIS ARRAY with your favorite photo numbers
+    const favoriteNumbers = [3, 11, 21, 26, 37, 39, 44, 46];
+    
+    // Find the actual image data for those numbers
+    const previewImages = favoriteNumbers.map(num => {
+        return imagesData.find(img => img.id === num - 1); // because array starts at 0
+    }).filter(img => img); // remove any that don't exist
+    
     mini.innerHTML = '';
     previewImages.forEach(img => {
         const item = document.createElement('div');
