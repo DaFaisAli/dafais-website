@@ -449,6 +449,58 @@ body {
     }
 }
 
+/* Make all links on contact page gold */
+.contact-info a {
+    color: #e6c200;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+/* Video section styles */
+.video-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.video-section h3 {
+    font-size: 1.5rem;
+    color: #e6c200;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+}
+
+.video-caption {
+    margin-top: 1rem;
+    color: #cbbd9b;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
 
 /* footer */
 footer {
